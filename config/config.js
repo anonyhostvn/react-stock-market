@@ -81,6 +81,12 @@ export default defineConfig({
                   redirect: '/dashboard/analysis',
                 },
                 {
+                  name: 'Stock Market',
+                  icon: 'stock',
+                  path: '/dashboard/stock',
+                  component: './dashboard/stockMarket'
+                },
+                {
                   name: 'analysis',
                   icon: 'smile',
                   path: '/dashboard/analysis',
