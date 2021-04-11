@@ -88,5 +88,72 @@ const data = [
   },
 ];
 
-export {data};
+const topIncreaseData = [
+  {
+    symbol: 'ROS',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    increasePercent: '6.99'
+  },
+  {
+    symbol: 'CIG',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    increasePercent: '6.99'
+  },
+  {
+    symbol: 'AMD',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    increasePercent: '6.99'
+  },
+  {
+    symbol: 'FTM',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    increasePercent: '6.99'
+  },
+  {
+    symbol: 'TDG',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    increasePercent: '6.99'
+  }
+]
+
+
+const topDecreaseData = [
+  {
+    symbol: 'SVD',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    decreasePercent: '6.99'
+  },
+  {
+    symbol: 'RIC',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    decreasePercent: '6.99'
+  },
+  {
+    symbol: 'YEG',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    decreasePercent: '6.99'
+  },
+  {
+    symbol: 'PMG',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    decreasePercent: '6.99'
+  },
+  {
+    symbol: 'QBS',
+    lastPrice: '5290',
+    currentPrice: '5660',
+    decreasePercent: '6.99'
+  }
+]
+
+export {data, topIncreaseData, topDecreaseData};
 

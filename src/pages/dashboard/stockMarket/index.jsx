@@ -1,10 +1,12 @@
 import React from 'react';
-import {Card, Col, Row, Table, Tag} from "antd";
+import {Card, Col, Row} from "antd";
 import {FormattedMessage} from "umi";
 import {GridContent} from "@ant-design/pro-layout";
-import {data} from './config/priceTable.fakeData';
+import StockMarketTable from "@/pages/dashboard/stockMarket/stockMarket.table";
+import {data, topIncreaseData, topDecreaseData} from "@/pages/dashboard/stockMarket/config/priceTable.fakeData";
+import TopIncreaseStockTable from "@/pages/dashboard/stockMarket/topIncreaseStock.table";
+import TopDecreaseStockTable from "@/pages/dashboard/stockMarket/topDecreaseStock.table";
 
-const {Column, ColumnGroup} = Table;
 
 const Index = () => {
   return (
@@ -30,52 +32,38 @@ const Index = () => {
               }
               bordered={false}
             >
-              <Table dataSource={data} scroll={{ x: 1500}} bordered>
-                <Column title="Symbol" dataIndex="symbol" key="symbol"/>
+              <StockMarketTable data={data}/>
+            </Card>
+          </Col>
 
-                <Column title="Cell" dataIndex="cell" key="cell"
-                        render={cell => <Tag color="blue" key={cell}> {cell}</Tag>}
+          <Col
+            xl={24}
+            lg={24}
+            md={24}
+            sm={24}
+            xs={24}
+            style={{
+              marginBottom: 24,
+            }}
+          >
+            <Card
+              title={
+                <FormattedMessage
+                  id="dashboardandstockmarket.stockmarket.topChangeTable"
+                  defaultMessage="Real-Time Trading Activity"
                 />
+              }
+              bordered={false}
+            >
+              <Row gutter={24}>
+                <Col xl={12} lg={12} md={24}>
+                  <TopIncreaseStockTable data={topIncreaseData}/>
+                </Col>
 
-                <Column title="Floor" dataIndex="floor" key="floor"
-                        render={floor => <Tag color="red" key={floor}> {floor}</Tag>}
-                />
-
-                <Column title="Ref" dataIndex="ref" key="ref"
-                        render={ref => <Tag color="yellow" key={ref}> {ref}</Tag>}
-                />
-
-                <ColumnGroup title="Bid">
-                  <Column title="P3" dataIndex="p3Bid" key="p3-bid"/>
-                  <Column title="Vol3" dataIndex="vol3Bid" key="vol3-bid"/>
-                  <Column title="P2" dataIndex="p2Bid" key="p2-bid"/>
-                  <Column title="Vol2" dataIndex="vol2Bid" key="vol2-bid"/>
-                  <Column title="P1" dataIndex="p1Bid" key="p1-bid"/>
-                  <Column title="Vol1" dataIndex="vol1Bid" key="vol1-bid"/>
-                </ColumnGroup>
-                <ColumnGroup title="Matched">
-                  <Column title="Price" dataIndex="price" key="price"/>
-                  <Column title="Vol" dataIndex="vol" key="vol"/>
-                  <Column title="+/-" dataIndex="change" key="change"/>
-                  <Column title="+/- (%)" dataIndex="changePer" key="changePer" render={per => `${per} %`}/>
-                </ColumnGroup>
-                <ColumnGroup title="Asked">
-                  <Column title="P3" dataIndex="p3Asked" key="p3-asked"/>
-                  <Column title="Vol3" dataIndex="vol3Asked" key="vol3-asked"/>
-                  <Column title="P2" dataIndex="p2Asked" key="p2-asked"/>
-                  <Column title="Vol2" dataIndex="vol2Asked" key="vol2-asked"/>
-                  <Column title="P1" dataIndex="p1Asked" key="p1-asked"/>
-                  <Column title="Vol1" dataIndex="vol1Asked" key="vol1-asked"/>
-                </ColumnGroup>
-                <Column title="High" dataIndex="high" key="high"/>
-                <Column title="Low" dataIndex="low" key="low"/>
-                <Column title="Total Vol" dataIndex="totalVol" key="totalVol"/>
-                <ColumnGroup title="Foreign">
-                  <Column title="FBuy" dataIndex="fBuy" key="fBuy"/>
-                  <Column title="FSell" dataIndex="fSell" key="fSell"/>
-                  <Column title="Room" dataIndex="room" key="room"/>
-                </ColumnGroup>
-              </Table>
+                <Col xl={12} lg={12} md={24}>
+                  <TopDecreaseStockTable data={topDecreaseData}/>
+                </Col>
+              </Row>
             </Card>
           </Col>
         </Row>
